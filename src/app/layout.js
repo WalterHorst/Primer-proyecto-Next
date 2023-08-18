@@ -1,7 +1,7 @@
-import { Inter } from "next/font/google";
-import Link from "next/link";
+import NavBar from "@/components/Navbar";
+import "./global.css";
 
-const inter = Inter({ subsets: ["latin"] });
+import Link from "next/link";
 
 export const metadata = {
   title: "Mi primer app",
@@ -10,17 +10,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html>
-      <header>
-        <Link href={"/home"}>Home</Link>
-        <br></br>
-        <br></br>
-        <Link href={"/about"}>About</Link>
-        <br></br>
-        <br></br>
-        <Link href={"/"}>Volver</Link>
-      </header>
-      <body>{children}</body>
+    <html lang="en">
+      <body className="flex-row">
+        <NavBar></NavBar>
+        <main className="container mx-auto h-550 flex justify-center items-center">
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
